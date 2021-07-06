@@ -74,6 +74,21 @@
         <script src="./layers/layers.js" type="text/javascript"></script> 
         <script src="./resources/Autolinker.min.js"></script>
         <script src="./resources/qgis2web.js"></script>
+            <script>
+        var map = L.map('map', {
+            center: [21.3069, -157.8583], // Honolulu, HI
+            zoom: 16
+        });
+
+        var defaultBase = L.tileLayer.provider('Stamen.TonerLite').addTo(map);
+
+        var baseLayers = {
+            'Stamen Toner': defaultBase,
+            'USGS TNM': L.tileLayer.provider('USGSTNM'),
+            'ESRI Imagery': L.tileLayer.provider('Esri.WorldImagery'),
+            'ESRI Ocean Basemap': L.tileLayer.provider('Esri.OceanBasemap'),
+            'OSM Topo': L.tileLayer.provider('OpenTopoMap')
+        };
 var map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
